@@ -1,0 +1,475 @@
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0a0a0f, #1a001f);
+    color: #f5e6ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Animación suave al cargar */
+body {
+    animation: fadeInBody 1.5s ease-in-out;
+}
+
+@keyframes fadeInBody {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    width: 100%;
+    padding: 60px 20px;
+    background: linear-gradient(90deg, #1a001f, #2d0036);
+    border-bottom: 3px solid #ff00a0;
+    box-shadow: 0 4px 25px rgba(255, 0, 150, 0.5);
+    position: relative;
+    overflow: hidden;
+    animation: deslizarArriba 1s ease;
+}
+
+/* Efecto sutil de brillo animado en el header */
+header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    animation: moverBrillo 5s linear infinite;
+    z-index: 0;
+}
+
+header h1 {
+    font-size: 3em;
+    color: #ff00c8;
+    text-shadow: 0 0 15px #ff00c8, 0 0 30px rgba(255, 0, 200, 0.7), 0 0 50px rgba(255,0,150,0.5);
+    animation: latido 2s infinite;
+    position: relative;
+    z-index: 1;
+}
+
+/* Subtítulo */
+header h2 {
+    margin-top: 15px;
+    font-weight: 400;
+    font-size: 1.3em;
+    color: #ff77aa;
+    text-shadow: 0 0 10px rgba(255, 119, 170, 0.6);
+    position: relative;
+    z-index: 1;
+}
+
+/* Latido romántico */
+@keyframes latido {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* =========================
+   SECCIONES
+========================= */
+
+section {
+    width: 90%;
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 25px;
+    background: rgba(25, 0, 35, 0.85);
+    border-radius: 15px;
+    border: 2px solid #bb00ff;
+    box-shadow: 0 0 20px rgba(187, 0, 255, 0.4);
+    transition: 0.4s ease;
+    animation: aparecerSuave 1.5s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(255, 0, 100, 0.7);
+}
+
+section h2 {
+    color: #ff4d6d;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+section h3 {
+    color: #d000ff;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 15px;
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+/* =========================
+   BOTÓN PRINCIPAL
+========================= */
+
+.boton-amor {
+    background: linear-gradient(45deg, #bb00ff, #ff003c);
+    color: white;
+    font-size: 20px;
+    padding: 18px 35px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 30px 0;
+    box-shadow: 0 0 25px rgba(255, 0, 100, 0.7);
+    transition: 0.3s ease;
+    animation: brillo 2s infinite alternate;
+}
+
+.boton-amor:hover {
+    transform: scale(1.1);
+}
+
+/* Brillo animado */
+@keyframes brillo {
+    from { box-shadow: 0 0 20px rgba(187, 0, 255, 0.5); }
+    to { box-shadow: 0 0 40px rgba(255, 0, 100, 0.9); }
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(6px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-contenido {
+    background: linear-gradient(135deg, #1a001f, #2d0036);
+    padding: 40px 25px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    border: 2px solid #ff003c;
+    box-shadow: 0 0 40px rgba(187, 0, 255, 0.8);
+    animation: zoomEntrada 0.6s ease;
+}
+
+.modal-contenido h2 {
+    color: #d000ff;
+}
+
+.mensaje-modal {
+    font-size: 1.3em;
+    margin-top: 20px;
+    color: #ff4d6d;
+}
+
+.cerrar {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #ff003c;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    width: 100%;
+    padding: 30px 20px;
+    background: #0d0012;
+    border-top: 2px solid #800040;
+    color: #ff4d6d;
+    margin-top: 40px;
+}
+
+/* =========================
+   ANIMACIONES EXTRA
+========================= */
+
+@keyframes aparecerSuave {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomEntrada {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes deslizarArriba {
+    from {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* =========================
+   RESPONSIVE TELÉFONO
+========================= */
+
+@media (max-width: 480px) {
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    header h2 {
+        font-size: 1em;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    .boton-amor {
+        font-size: 18px;
+        padding: 15px 25px;
+    }
+
+    .modal-contenido {
+        padding: 30px 20px;
+    }
+
+    .mensaje-modal {
+        font-size: 1.1em;
+    }
+}
+/* =========================
+   GALERÍA PRINCIPAL
+========================= */
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.galeria img {
+    width: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    transition: 0.4s ease;
+    box-shadow: 0 0 15px rgba(187, 0, 255, 0.3);
+}
+
+.galeria img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 0, 100, 0.7);
+}
+
+/* =========================
+   CARRUSEL
+========================= */
+
+.carrusel-imagenes {
+    overflow: hidden;
+    width: 100%;
+    padding-left: 10px; /* evita cortar la primera imagen */
+}
+
+.carrusel-imagenes-track {
+    display: flex;
+    gap: 15px; /* espacio entre imágenes */
+    transition: transform 0.6s ease-in-out;
+}
+
+.carrusel-imagenes img {
+    flex: 0 0 auto; /* evita que se reduzcan automáticamente */
+    width: 300px;   /* ancho fijo */
+    height: 400px;  /* alto fijo */
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* =========================
+   RESPONSIVE EXTRA
+========================= */
+/* =========================
+   AJUSTES PROFESIONALES MÓVIL
+========================= */
+
+img, video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* GALERÍA */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* columnas más anchas */
+    gap: 25px; /* más espacio entre imágenes */
+    margin-top: 30px;
+    perspective: 1000px; /* efecto 3D sutil */
+}
+
+.galeria img {
+    width: 100%;
+    height: 300px; /* imágenes más grandes */
+    object-fit: cover;
+    border-radius: 25px; /* bordes más suaves */
+    box-shadow: 0 6px 25px rgba(255, 0, 100, 0.4);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+    cursor: pointer;
+    position: relative;
+    animation: aparecerGaleria 1s ease forwards;
+}
+
+/* CARRUSEL */
+.carrusel {
+    overflow: hidden;
+    width: 100%;
+    padding-left: 10px; /* evita que el primer video se corte */
+}
+
+.carrusel-track {
+    display: flex;
+    gap: 15px; /* espacio suficiente entre videos */
+    transition: transform 0.6s ease-in-out;
+}
+
+.carrusel img,
+.carrusel video {
+    flex: 0 0 auto; /* evita que los videos se reduzcan */
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+
+/* =========================
+   TABLETS
+========================= */
+
+@media (max-width: 768px) {
+
+    .galeria {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .galeria img {
+        height: 180px;
+    }
+
+    .carrusel img,
+    .carrusel video {
+        width: 70vw;
+        height: 350px;
+    }
+}
+
+/* =========================
+   TELÉFONOS
+========================= */
+
+@media (max-width: 480px) {
+
+    section {
+        padding: 18px;
+    }
+
+    .galeria {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .galeria img {
+        height: 160px;
+    }
+
+    .carrusel img,
+    .carrusel video {
+        width: 85vw;
+        height: 60vh;
+        max-height: 420px;
+    }
+
+    .carrusel-track {
+        gap: 15px;
+    }
+}
+
+.carrusel {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.carrusel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(187,0,255,0.7);
+    border: none;
+    color: white;
+    font-size: 2em;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: 0.3s;
+}
+
+.carrusel-btn:hover {
+    background: rgba(255,0,100,0.8);
+}
+
+.carrusel-btn.left {
+    left: 10px;
+}
+
+.carrusel-btn.right {
+    right: 10px;
+}
+
+.carrusel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.4s ease-in-out;
+}
