@@ -145,3 +145,12 @@ function carruselVideosInteractivo(trackId, btnPrevId, btnNextId) {
 
 // Activar carrusel
 carruselVideosInteractivo("carruselVideosSolo", "prevVideo", "nextVideo");
+// Loader que dura 3 segundos
+window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    setTimeout(() => {
+        loader.style.opacity = '0';
+        loader.style.transition = 'opacity 0.5s ease';
+        setTimeout(() => loader.remove(), 500);
+    }, 3000);
+});
