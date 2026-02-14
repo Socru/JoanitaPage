@@ -49,6 +49,7 @@ header::before {
     content: '';
     position: absolute;
     inset: 0;
+    background: linear-gradient(120deg, rgba(255,0,150,0.1), rgba(0,0,0,0.1), rgba(255,0,255,0.1));
     pointer-events: none;
     animation: moverBrillo 5s linear infinite;
     z-index: 0;
